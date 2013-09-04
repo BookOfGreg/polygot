@@ -6,7 +6,7 @@ function find_rb_files {
     LOC='.'
   else
    LOC=$1
-  fi 
+  fi
 
   find "${LOC}" -name '*.rb'
 }
@@ -14,6 +14,7 @@ function find_rb_files {
 alias rbs=find_rb_files
 alias be="bundle exec"
 alias bi="echo 'bundle install'; bundle install"
+alias rakedb="rake db:create db:migrate db:seed db:test:prepare"
 
 function rgem {
   RUBY="
@@ -23,5 +24,3 @@ function rgem {
 "
   gem list --remote $1 | ruby -e "$RUBY"
 }
-
-
