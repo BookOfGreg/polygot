@@ -14,7 +14,7 @@ function find_rb_files {
 alias rbs=find_rb_files
 alias be="bundle exec"
 alias bi="echo 'bundle install'; bundle install"
-alias rakedb="rake db:create db:migrate db:seed db:test:prepare"
+alias rakedb="rake db:drop db:create db:migrate db:seed db:test:prepare"
 
 function rgem {
   RUBY="

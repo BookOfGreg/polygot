@@ -7,13 +7,13 @@ function rails-new {
   then
     echo "$1 already exists" >&2
     return 2
-  fi 
+  fi
 
   project_name=$1
-  
-  echo "Creating $project_name" 
+
+  echo "Creating $project_name"
   rails new $project_name -T -m https://raw.github.com/edgecase/ecrails_templates/master/rails_templates/ecuk_standard_app.rb
-  [[  $? -eq 0 ]] || return 3  
+  [[  $? -eq 0 ]] || return 3
 
   cd $project_name
   for d in models views helpers controllers
@@ -22,17 +22,18 @@ function rails-new {
     mkdir -p spec/$d
   done
   echo "Creating spec helper"
-  touch spec/spec_helper.rb  
+  touch spec/spec_helper.rb
 }
 
 function restart {
   [[ ! -z $(git remote) ]] && git pull origin
-  bundle install && 
+  bundle install &&
   bundle exec rake db:migrate db:test:prepare &&
-  bundle exec rspec && 
+  bundle exec rspec &&
   bundle exec rails s
 }
 
 alias rdbm='echo Migrating db and prepping test db; bundle exec rake db:migrate db:test:prepare'
+alias rdb:all='bundle exec rake db:drop db:create db:migrate db:seed db:test:prepare'
 
 alias tb='torquebox'
