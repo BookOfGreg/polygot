@@ -5,7 +5,7 @@ Polygot is a simple framework for programmers who want to be able to switch betw
 For example, I don't use clojurescript very often so I don't want it to be installed in my shell sessions by defualt.  However, I can load it up on demand using a single command.
 
 ```
-poly load clojurescript
+poly load ruby
 ```
 
 ## Installation
@@ -72,5 +72,3 @@ You need to start a new session that doesn't include the language you don't want
 ### Do you want pull requests?
 
 No thanks.  Please fork the project and set things up as you like.
-
-
