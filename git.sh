@@ -29,4 +29,4 @@ git config --global alias.co checkout
 export GIT_PS1_SHOWDIRTYSTATE=true
 
 . ~/.poly/git-prompt.sh
-PS1='\[\033[32m\]$(rvm current)\[\033[00m\]:\[\033[34m\]$(basename $PWD)\[\033[31m\]$(__git_ps1)\[\033[00m\]\$ '
+PS1="\[\033[32m\]$(rvm current)\[\033[00m\]:\[\033[34m\]\W\[\033[31m\]"'$(__git_ps1)'"\[\033[00m\]\$ "
