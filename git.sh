@@ -24,6 +24,7 @@ alias gb="git branch -a"
 alias gbs=git_branch_date
 
 git config --global color.ui true
+git config --global colour.diff.meta "white bold"
 git config --global alias.co checkout
 
 export GIT_PS1_SHOWDIRTYSTATE=true
