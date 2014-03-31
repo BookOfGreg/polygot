@@ -26,6 +26,7 @@ alias gbs=git_branch_date
 git config --global color.ui true
 git config --global color.diff.meta "white bold"
 git config --global alias.co checkout
+git config --global push.default current
 
 export GIT_PS1_SHOWDIRTYSTATE=true
 
