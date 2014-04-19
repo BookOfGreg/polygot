@@ -31,4 +31,4 @@ git config --global push.default current
 export GIT_PS1_SHOWDIRTYSTATE=true
 
 . ~/.poly/git-prompt.sh
-PS1="\[\033[32m\]"'$(rbenv version | cut -d " " -f 1)'"\[\033[00m\]:\[\033[34m\]\W\[\033[31m\]"'$(__git_ps1)'"\[\033[00m\]\$ "
+PS1="\[\033[32m\]"'$(ruby -v | cut -d " " -f 2)'"\[\033[00m\]:\[\033[34m\]\W\[\033[31m\]"'$(__git_ps1)'"\[\033[00m\]\$ "
