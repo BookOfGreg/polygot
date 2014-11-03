@@ -22,6 +22,7 @@ alias gds='git diff --staged'
 alias gd="git diff"
 alias gb="git branch -a"
 alias gbs=git_branch_date
+alias ghist="gl --all"
 
 git config --global color.ui true
 git config --global color.diff.meta "white bold"
