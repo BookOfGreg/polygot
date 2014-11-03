@@ -1,5 +1,5 @@
-alias ll='ls -ltr | tail'
-alias l='ls -1tr | tail'
+alias ll='ls -al'
+alias l='ls -al'
 alias fndr='open /System/Library/CoreServices/Finder.app "$PWD"'
 alias reload='source ~/.bash_profile'
 alias sub='subl'
