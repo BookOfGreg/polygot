@@ -13,7 +13,7 @@ function git_branch_date {
 }
 
 alias gc='git commit -m'
-alias gca='git commit -am'
+# alias gca='git commit -am'
 alias ga='git add'
 alias gs='git status -sbuall'
 alias glo='git log --oneline --decorate'
@@ -23,6 +23,7 @@ alias gd="git diff"
 alias gb="git branch -a"
 alias gbs=git_branch_date
 alias ghist="gl --all"
+alias gbrm="git branch -D"
 
 git config --global color.ui true
 git config --global color.diff.meta "white bold"
