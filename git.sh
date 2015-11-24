@@ -9,7 +9,19 @@ function git_branch_date {
     local branch_modified=$(git log -1 --format=%ci "$branch" 2> /dev/null || git log -1 --format=%ci)
     echo -e "$branch_modified $REPLY"
     # cut strips the time and timezone columns, leaving only the date
-    done | sort -r | cut -d ' ' -f -1,4-
+  done | sort -r | cut -d ' ' -f -1,4-
+}
+
+function git_rm_all_gone_branches {
+  git branch -vv --color=always | grep ': gone]' | cut -d ' ' -f 2-3 | while read branch; do
+    local gone_branch=$branch
+    git branch -D $gone_branch
+  done && git_branch_date
+}
+
+function git_branch_set_upstream {
+  local branch=$(git branch | grep '*' | cut -d ' ' -f 2)
+  git branch --set-upstream-to=origin/$branch $branch
 }
 
 alias gc='git commit -m'
@@ -23,7 +35,8 @@ alias gd="git diff"
 alias gb="git branch -a"
 alias gbs=git_branch_date
 alias ghist="gl --all"
-alias gbrm="git branch -D"
+alias gbup=git_branch_set_upstream
+alias gbrmgone=git_rm_all_gone_branches
 
 git config --global color.ui true
 git config --global color.diff.meta "white bold"

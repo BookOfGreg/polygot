@@ -1,8 +1,8 @@
 function rake_test_with_test_name {
-  rake TESTOPTS="--name $1"
+  bundle exec rake TESTOPTS="--name $1"
 }
 function rake_test_with_file {
-  rake TEST=$1
+  bundle exec rake TEST=$1
 }
 
 alias rdbm='echo Migrating db and prepping test db; bundle exec rake db:migrate db:test:prepare'
