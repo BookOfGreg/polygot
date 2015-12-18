@@ -24,6 +24,31 @@ function git_branch_set_upstream {
   git branch --set-upstream-to=origin/$branch $branch
 }
 
+function count() {
+  git ls-tree -r --name-only $COMMIT | grep -e $1 | wc -l | sed 's/ //g'
+}
+
+function git_count_files {
+  git log --pretty="%H %cd" --date=short | while read COMMIT DATE
+  do
+      # skip commits made on the same day
+      [ "$PREV_DATE" == "$DATE" ] && continue
+      PREV_DATE="$DATE"
+
+      # count files
+      MODELS=$(count "app/models/.*\.rb$")
+      CONTROLLERS=$(count "app/controllers/.*_controller\.rb$")
+
+      # print to console
+      echo $DATE
+      echo " $MODELS    models"
+      echo " $CONTROLLERS    CONTROLLERS"
+
+      # append to CSV file
+      echo "$DATE,$MODELS,$CONTROLLERS" >> $1
+  done
+}
+
 alias gc='git commit -m'
 # alias gca='git commit -am'
 alias ga='git add'
