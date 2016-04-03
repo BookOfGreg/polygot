@@ -9,6 +9,8 @@ function find_rb_files {
   find "${LOC}" -name '*.rb'
 }
 
+eval "$(rbenv init -)"
+
 alias rbs=find_rb_files
 alias be="bundle exec"
 alias bi="echo 'bundle check & install'; bundle check; bundle install"
