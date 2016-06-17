@@ -1,5 +1,9 @@
-# status = docker-machine active
-# if [ status -ne Running ]; then
-# eval $(docker-machine env default)
-# fi
-alias denv="eval $(docker-machine env default)"
+function denv {
+  eval $(docker-machine env default)
+}
+
+function drun {
+  docker-machine start default
+}
+
+alias debug="docker-compose run --service-ports"
