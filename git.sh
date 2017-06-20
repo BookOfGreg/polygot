@@ -12,6 +12,10 @@ function git_branch_date {
   done | sort -r | cut -d ' ' -f -1,4-
 }
 
+function git_rm_branch {
+  git branch -D $1
+}
+
 function git_rm_all_gone_branches {
   git branch -vv --color=always | grep ': gone]' | cut -d ' ' -f 2-3 | while read branch; do
     local gone_branch=$branch
@@ -61,7 +65,11 @@ alias gb="git branch -a"
 alias gbs=git_branch_date
 alias ghist="gl --all"
 alias gbup=git_branch_set_upstream
+alias gbrm=git_rm_branch
 alias gbrmgone=git_rm_all_gone_branches
+
+# For ZSH compatibility
+alias gst=gs
 
 git config --global color.ui true
 git config --global color.diff.meta "white bold"

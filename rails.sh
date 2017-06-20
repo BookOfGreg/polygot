@@ -16,3 +16,8 @@ alias rake='bundle exec rake'
 alias rtn=rake_test_with_test_name
 alias rtf=rake_test_with_file
 alias rts=rake_test_with_seed
+
+# For ZSH compatibility
+alias rs='rails s'
+alias rc='rails c'
+alias rg='rails g'

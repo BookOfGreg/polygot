@@ -1,3 +1,7 @@
+function sslcheck {
+  echo "Q" | openssl s_client -showcerts -connect ${1}:443
+}
+
 function whoson {
   if ! lsof -i:${1}
   then
@@ -15,6 +19,7 @@ alias reload='source ~/.bash_profile'
 alias sub='subl'
 alias serve='ruby -run -e httpd . -p 9090'
 alias dnsflush='sudo killall -HUP mDNSResponder'
+alias tlscheck=sslcheck
 
 alias tar=gtar
 
