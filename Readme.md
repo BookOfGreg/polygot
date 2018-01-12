@@ -27,7 +27,7 @@ Obviously, you should load the packages relevant to your world not mine.
 
 ## Usage
 
-To get help, type 
+To get help, type
 
 ```
 poly help
@@ -41,7 +41,7 @@ For example, I create ~/.poly/ioke.sh I can load Ioke by running
 poly load ioke
 ```
 
-Remember that ioke.sh will be 'dotted' into your environment so you shouldn't do anything that will kill the whole session like 
+Remember that ioke.sh will be 'dotted' into your environment so you shouldn't do anything that will kill the whole session like
 
 ```
 exit 0

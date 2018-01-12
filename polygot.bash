@@ -28,7 +28,7 @@ then
   if [[ -f ./Polyfile ]]
   then
     source ./Polyfile
-  else 
+  else
     echo "No Polyfile found" >&2
   fi
 else
