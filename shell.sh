@@ -27,7 +27,7 @@ alias tlscheck=sslcheck
 
 alias tar=gtar
 
-PS1="\[\033[32m\]"'$(rit _ruby_ps1),$(rit _node_ps1),$(rit kube_ps1)'"\[\033[00m\]:\[\033[34m\]\W\[\033[31m\]"'$(__git_ps1)'"\[\033[00m\]\$ "
+PS1='\[\e[32m$(rit _ruby_ps1),$(rit _node_ps1),$(rit kube_ps1)\[\e[00m:\[\e[34m\W\[\e[31m$(__git_ps1)\[\e[00m\$ '
 
 CLICOLOR=1; export CLICOLOR
 LSCOLORS=GxFxCxDxBxegedabagaced; export LSCOLORS
