@@ -1,3 +1,7 @@
+_ruby_ps1() {
+  ruby -v | cut -d " " -f 2
+}
+
 function find_rb_files {
   if [[ -z "$1" ]]
   then
