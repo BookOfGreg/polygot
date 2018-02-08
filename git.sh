@@ -79,3 +79,7 @@ git config --global push.default current
 export GIT_PS1_SHOWDIRTYSTATE=true
 
 . ~/.poly/git-prompt.sh
+_git_ps1() {
+  GIT_PS1=$(__git_ps1)
+}
+PROMPT_COMMAND="${PROMPT_COMMAND:-:};_git_ps1"

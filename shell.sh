@@ -13,10 +13,6 @@ function count_lines {
   find ${2} -name ${1} | xargs wc -l
 }
 
-function rit {
-  type $1 &>/dev/null && $1
-}
-
 alias ll='ls -al'
 alias l='ls -al'
 alias reload='source ~/.bash_profile'
@@ -27,7 +23,7 @@ alias tlscheck=sslcheck
 
 alias tar=gtar
 
-PS1='\[\e[32m$(rit _ruby_ps1),$(rit _node_ps1),$(rit kube_ps1)\[\e[00m:\[\e[34m\W\[\e[31m$(__git_ps1)\[\e[00m\$ '
+PS1="\[\e[32m$(_ruby_ps1),${NODE_PS1},$(kube_ps1)\[\e[00m:\[\e[34m\W\[\e[31m${GIT_PS1}\[\e[00m\$ "
 
 CLICOLOR=1; export CLICOLOR
 LSCOLORS=GxFxCxDxBxegedabagaced; export LSCOLORS

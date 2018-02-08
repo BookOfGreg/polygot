@@ -1,6 +1,12 @@
-_ruby_ps1() {
-  ruby -v | cut -d " " -f 2
+# Setting the PS1 by hooking the pre-load.
+_ruby_ps1_load() {
+  RUBY_PS1=$(ruby -v | cut -d " " -f 2)
 }
+_ruby_ps1() {
+  RUBY_PS1=$(ruby -v | cut -d " " -f 2)
+}
+PROMPT_COMMAND="${PROMPT_COMMAND:-:};_ruby_ps1_load"
+PS1="\[\e[32m$(_ruby_ps1)"
 
 function find_rb_files {
   if [[ -z "$1" ]]
